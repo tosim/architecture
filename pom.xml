@@ -20,5 +20,4 @@
         <module>disruptor</module>
         <module>concurrency</module>
     </modules>
-
 </project>
