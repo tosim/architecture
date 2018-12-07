@@ -2,6 +2,10 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: redis-use
+  profiles:
+    active: dev
   redis:
     hostName: 47.100.63.91
     port: 6379
