@@ -19,5 +19,6 @@
         <module>redis</module>
         <module>disruptor</module>
         <module>concurrency</module>
+        <module>elasticsearch</module>
     </modules>
 </project>
