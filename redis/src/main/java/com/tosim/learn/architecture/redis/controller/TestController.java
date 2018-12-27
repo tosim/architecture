@@ -1,5 +1,7 @@
 package com.tosim.learn.architecture.redis.controller;
 
+import com.tosim.commons.web.errorcode.ErrorCode;
+import com.tosim.commons.web.execption.SystemErrorException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,12 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestController {
-
     private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
     @GetMapping("/debug")
     public String testDebug() {
         logger.debug("this is debug");
+        if (true) {
+            throw new SystemErrorException(ErrorCode.RPC_ERROR);
+        }
         return "debug";
     }
 

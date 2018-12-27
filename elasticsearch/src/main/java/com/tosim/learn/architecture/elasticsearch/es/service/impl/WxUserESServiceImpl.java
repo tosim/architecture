@@ -1,14 +1,19 @@
 package com.tosim.learn.architecture.elasticsearch.es.service.impl;
 
 import com.tosim.learn.architecture.elasticsearch.es.documnet.WxUserDoc;
-import com.tosim.learn.architecture.elasticsearch.es.repo.WxUserESRepo;
 import com.tosim.learn.architecture.elasticsearch.es.service.WxUserESService;
-import org.apache.commons.collections4.IteratorUtils;
+import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
+import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest;
+import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequestBuilder;
+import org.elasticsearch.action.admin.indices.exists.types.TypesExistsRequestBuilder;
+import org.elasticsearch.client.ElasticsearchClient;
+import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author yaoyicheng
@@ -17,20 +22,24 @@ import java.util.List;
 @Service("wxUserESService")
 public class WxUserESServiceImpl implements WxUserESService {
     @Autowired
-    ElasticsearchTemplate elasticsearchTemplate;
+    private RestHighLevelClient rhlClient;
+
+    @PostConstruct
+    public void checkIndex() {
+    }
 
     @Override
-    public List<WxUserDoc> findAll() {
+    public void doUpdateESUser(WxUserDoc wxUserDoc) {
+
+    }
+
+    @Override
+    public List<String> getTagUserList(String appId, List<Long> tagIdList) {
         return null;
     }
 
     @Override
-    public WxUserDoc findById(String id) {
-        return null;
-    }
-
-    @Override
-    public String save(WxUserDoc wxUserDoc) {
+    public Map<Long, Long> aggsByTag(String appId) {
         return null;
     }
 }

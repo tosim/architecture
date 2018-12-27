@@ -1,31 +1,21 @@
 package com.tosim.learn.architecture.elasticsearch.es.documnet;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.elasticsearch.annotations.Document;
-import org.springframework.data.elasticsearch.annotations.Field;
-import org.springframework.data.elasticsearch.annotations.FieldType;
-
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author yaoyicheng
  * @data 2018/12/13 11:02
  */
-@Document(indexName="data",type="wx_user")
 public class WxUserDoc {
-    @Id
     private String id;
 
-    @Field(type = FieldType.Keyword)
     private String appId;
 
-    @Field(type = FieldType.Keyword)
     private String openId;
 
-    @Field(type =FieldType.Long)
     private Long interActionTime;
 
-    @Field(type = FieldType.Long)
     private List<Long> tag;
 
     public WxUserDoc() {}
@@ -76,5 +66,15 @@ public class WxUserDoc {
 
     public void setTag(List<Long> tag) {
         this.tag = tag;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.id.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return Objects.equals(this.id, ((WxUserDoc)obj).id);
     }
 }

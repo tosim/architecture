@@ -11,7 +11,7 @@
         <!-- 控制台显示的日志最低级别 -->
         <property name="console_print_level">DEBUG</property>
         <!-- 日志默认输出级别 -->
-        <property name="output_log_level">DEBUG</property>
+        <property name="output_log_level">INFO</property>
         <!-- 日志默认切割的最小单位 -->
         <property name="every_file_size">50MB</property>
         <!--最多保存几天内的文件，用delete标签实现，保存7天的文件-->
@@ -130,9 +130,9 @@
     <!--然后定义logger,只有定义了logger并引入的appender,appender才会生效-->
     <loggers>
         <!-- 设置对打印sql语句的支持 -->
-        <!--<logger name="java.sql" level="debug" additivity="false">-->
-        <!--<appender-ref ref="Console"/>-->
-        <!--</logger>-->
+        <logger name="com.tosim.learn.architecture.redis" level="debug" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
 
         <!--建立一个默认的root的logger-->
         <root level="${output_log_level}">
