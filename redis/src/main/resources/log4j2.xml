@@ -6,7 +6,8 @@
     <Properties>
         <!-- 日志默认存放的位置,这里设置为项目根路径下,也可指定绝对路径 -->
         <!-- ${web:rootDir}是web项目根路径,java项目没有这个变量,需要删掉,否则会报异常 -->
-        <property name="basePath">logs</property>
+        <property name="appName">redis</property>
+        <property name="basePath">${sys:user.home}/logs/${appName}</property>
 
         <!-- 控制台显示的日志最低级别 -->
         <property name="console_print_level">DEBUG</property>
