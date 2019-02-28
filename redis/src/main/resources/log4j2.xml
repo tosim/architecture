@@ -5,7 +5,7 @@
 <configuration status="WARN" monitorInterval="1800">
     <Properties>
         <!-- 日志默认存放的位置,这里设置为项目根路径下,也可指定绝对路径 -->
-        <!-- ${web:rootDir}是web项目根路径,java项目没有这个变量,需要删掉,否则会报异常 -->
+        <!-- ${front:rootDir}是web项目根路径,java项目没有这个变量,需要删掉,否则会报异常 -->
         <property name="appName">redis</property>
         <property name="basePath">${sys:user.home}/logs/${appName}</property>
 
@@ -138,10 +138,10 @@
         <!--建立一个默认的root的logger-->
         <root level="${output_log_level}">
             <appender-ref ref="Console"/>
-            <appender-ref ref="RollingFile"/>
-            <appender-ref ref="InfoFile"/>
-            <appender-ref ref="WarnFile"/>
-            <appender-ref ref="ErrorFile"/>
+            <!--<appender-ref ref="RollingFile"/>-->
+            <!--<appender-ref ref="InfoFile"/>-->
+            <!--<appender-ref ref="WarnFile"/>-->
+            <!--<appender-ref ref="ErrorFile"/>-->
         </root>
     </loggers>
 </configuration>
